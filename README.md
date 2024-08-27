@@ -63,6 +63,4 @@ Asegúrate de tener [Python](https://www.python.org/downloads/) instalado en tu 
 
 Si deseas contribuir a este proyecto, por favor envía un pull request con tus cambios.
 
-## Licencia
 
-Este proyecto está licenciado bajo la [Licencia MIT](LICENSE).
