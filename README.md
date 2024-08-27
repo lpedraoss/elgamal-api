@@ -29,19 +29,30 @@ Asegúrate de tener [Python](https://www.python.org/downloads/) instalado en tu 
     ```
 
 ## Ejecución de la API
+1. **Endpoints Disponibles**:
 
-1. **Ejecuta la aplicación**:
+    - **Registro de Usuario**
+      - **Método**: `POST`
+      - **Endpoint**: `/register`
+      - **Descripción**: Registra una nueva contraseña cifrada en el sistema.
+      - **Cuerpo de la Solicitud**: JSON con el siguiente formato:
+        ```json
+        {
+          "password": "tu_contraseña_aqui"
+        }
+        ```
 
-    ```bash
-    python run.py
-    ```
+    - **Inicio de Sesión**
+      - **Método**: `POST`
+      - **Endpoint**: `/login`
+      - **Descripción**: Autentica un usuario comparando la contraseña ingresada con la almacenada.
+      - **Cuerpo de la Solicitud**: JSON con el siguiente formato:
+        ```json
+        {
+          "password": "tu_contraseña_aqui"
+        }
+        ```
 
-    Esto iniciará el servidor Flask en `http://127.0.0.1:5000/`.
-
-2. **Prueba las rutas**:
-
-    - **Registro**: Envía una solicitud POST a `/register` con un JSON que contenga una contraseña para registrarla.
-    - **Inicio de sesión**: Envía una solicitud POST a `/login` con las credenciales necesarias para autenticarte.
 
 ## Notas Adicionales
 
