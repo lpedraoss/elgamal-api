@@ -1,16 +1,24 @@
 import random
 from math import pow
-from flask import Blueprint, request, jsonify
+from flask import Blueprint, request, jsonify, render_template
 from database import users_db
 from utils.encryption import gen_key, power, encrypt
 
 register_blueprint = Blueprint('register', __name__)
 
+@register_blueprint.route('/register', methods=['GET'])
+def register_page():
+    return render_template('register.html')
+
 @register_blueprint.route('/register', methods=['POST'])
 def register():
-    data = request.get_json()
-    username = data.get('username')
-    password = data.get('password')
+    if request.is_json:
+        data = request.get_json()
+        username = data.get('username')
+        password = data.get('password')
+    else:
+        username = request.form.get('username')
+        password = request.form.get('password')
     
     if any(user['username'] == username for user in users_db):
         return jsonify({'message': 'Username already exists.'}), 409

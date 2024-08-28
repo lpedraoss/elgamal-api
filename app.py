@@ -6,5 +6,9 @@ app = Flask(__name__)
 app.register_blueprint(register_blueprint, url_prefix='/api')
 app.register_blueprint(login_blueprint, url_prefix='/api')
 
+@app.route('/')
+def home():
+    return "Welcome to the Simple API!"
+
 if __name__ == '__main__':
     app.run(debug=True)
