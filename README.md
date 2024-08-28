@@ -29,38 +29,44 @@ Asegúrate de tener [Python](https://www.python.org/downloads/) instalado en tu 
     ```
 
 ## Ejecución de la API
-1. **Endpoints Disponibles**:
+
+1. **Inicia la aplicación**:
+
+    ```bash
+    flask run
+    ```
+
+2. **Endpoints Disponibles**:
 
     - **Registro de Usuario**
       - **Método**: `POST`
-      - **Endpoint**: `/register`
-      - **Descripción**: Registra una nueva contraseña cifrada en el sistema.
+      - **Endpoint**: `/api/register`
+      - **Descripción**: Registra un nuevo usuario en el sistema.
       - **Cuerpo de la Solicitud**: JSON con el siguiente formato:
         ```json
         {
+          "username": "tu_usuario_aqui",
           "password": "tu_contraseña_aqui"
         }
         ```
 
     - **Inicio de Sesión**
-      - **Método**: `POST`
-      - **Endpoint**: `/login`
+      - **Método**: [`POST`](command:_github.copilot.openSymbolFromReferences?%5B%22POST%22%2C%5B%7B%22uri%22%3A%7B%22%24mid%22%3A1%2C%22fsPath%22%3A%22c%3A%5C%5CUsers%5C%5Cluill%5C%5CDocuments%5C%5CmiGit%5C%5Celgamal-api%5C%5CREADME.md%22%2C%22_sep%22%3A1%2C%22external%22%3A%22file%3A%2F%2F%2Fc%253A%2FUsers%2Fluill%2FDocuments%2FmiGit%2Felgamal-api%2FREADME.md%22%2C%22path%22%3A%22%2Fc%3A%2FUsers%2Fluill%2FDocuments%2FmiGit%2Felgamal-api%2FREADME.md%22%2C%22scheme%22%3A%22file%22%7D%2C%22pos%22%3A%7B%22line%22%3A34%2C%22character%22%3A21%7D%7D%5D%5D "Go to definition")
+      - **Endpoint**: `/api/login`
       - **Descripción**: Autentica un usuario comparando la contraseña ingresada con la almacenada.
       - **Cuerpo de la Solicitud**: JSON con el siguiente formato:
         ```json
         {
+          "username": "tu_usuario_aqui",
           "password": "tu_contraseña_aqui"
         }
         ```
 
-
 ## Notas Adicionales
 
-- Asegúrate de que el archivo `requirements.txt` esté actualizado con las últimas dependencias usando `pip freeze > requirements.txt`.
+- Asegúrate de que el archivo [`requirements.txt`](command:_github.copilot.openRelativePath?%5B%7B%22scheme%22%3A%22file%22%2C%22authority%22%3A%22%22%2C%22path%22%3A%22%2Fc%3A%2FUsers%2Fluill%2FDocuments%2FmiGit%2Felgamal-api%2Frequirements.txt%22%2C%22query%22%3A%22%22%2C%22fragment%22%3A%22%22%7D%5D "c:\Users\luill\Documents\miGit\elgamal-api\requirements.txt") esté actualizado con las últimas dependencias usando [`pip freeze > requirements.txt`](command:_github.copilot.openSymbolFromReferences?%5B%22pip%20freeze%20%3E%20requirements.txt%22%2C%5B%7B%22uri%22%3A%7B%22%24mid%22%3A1%2C%22fsPath%22%3A%22c%3A%5C%5CUsers%5C%5Cluill%5C%5CDocuments%5C%5CmiGit%5C%5Celgamal-api%5C%5CREADME.md%22%2C%22_sep%22%3A1%2C%22external%22%3A%22file%3A%2F%2F%2Fc%253A%2FUsers%2Fluill%2FDocuments%2FmiGit%2Felgamal-api%2FREADME.md%22%2C%22path%22%3A%22%2Fc%3A%2FUsers%2Fluill%2FDocuments%2FmiGit%2Felgamal-api%2FREADME.md%22%2C%22scheme%22%3A%22file%22%7D%2C%22pos%22%3A%7B%22line%22%3A58%2C%22character%22%3A107%7D%7D%5D%5D "Go to definition").
 - Consulta la [documentación de Flask](https://flask.palletsprojects.com/) para más detalles sobre el framework.
 
 ## Contribuciones
 
 Si deseas contribuir a este proyecto, por favor envía un pull request con tus cambios.
-
-
