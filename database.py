@@ -1,2 +1,11 @@
-# Simulación de una base de datos en memoria
-users_db = []
+# database.py
+import mysql.connector
+
+def get_db_connection():
+    connection = mysql.connector.connect(
+        host='localhost',
+        user='root',
+        password='root',
+        database='elgamaldb'
+    )
+    return connection

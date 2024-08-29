@@ -1,5 +1,6 @@
+# login.py
 from flask import Blueprint, request, jsonify, render_template
-from database import users_db
+from database import get_db_connection
 from utils.encryption import verify_password
 
 login_blueprint = Blueprint('login', __name__)
@@ -18,9 +19,16 @@ def login():
         username = request.form.get('username')
         password = request.form.get('password')
     
-    user = next((user for user in users_db if user['username'] == username), None)
+    connection = get_db_connection()
+    cursor = connection.cursor(dictionary=True)
     
-    if user and verify_password(password, user['password'], user['p'], user['a'], user['c1']):
+    cursor.execute("SELECT * FROM users WHERE username = %s", (username,))
+    user = cursor.fetchone()
+    
+    cursor.close()
+    connection.close()
+    
+    if user and verify_password(password, eval(user['password']), int(user['p']), int(user['a']), int(user['c1'])):
         return jsonify({'message': 'Login successful!'}), 200
     else:
         return jsonify({'message': 'Login failed. Check your username and/or password.'}), 401
