@@ -24,6 +24,18 @@ def register():
     connection = get_db_connection()
     cursor = connection.cursor(dictionary=True)
     
+    # Verificar si la tabla 'users' existe y crearla si no existe
+    cursor.execute("""
+    CREATE TABLE IF NOT EXISTS users (
+        id INT AUTO_INCREMENT PRIMARY KEY,
+        username VARCHAR(255) NOT NULL UNIQUE,
+        password TEXT NOT NULL,
+        p VARCHAR(255) NOT NULL,
+        a VARCHAR(255) NOT NULL,
+        c1 VARCHAR(255) NOT NULL
+    )
+    """)
+    
     cursor.execute("SELECT * FROM users WHERE username = %s", (username,))
     user = cursor.fetchone()
     
