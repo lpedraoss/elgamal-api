@@ -28,7 +28,12 @@ Asegúrate de tener [Python](https://www.python.org/downloads/) instalado en tu 
     pip install -r requirements.txt
     ```
 
-4. **Configura la base de datos**:
+4. **Instala MySQL Server y MySQL Workbench**:
+
+    - Descarga e instala [MySQL Server](https://dev.mysql.com/downloads/mysql/).
+    - Descarga e instala [MySQL Workbench](https://dev.mysql.com/downloads/workbench/).
+
+5. **Configura la base de datos**:
 
     - Abre MySQL Workbench.
     - En la barra lateral izquierda, en la sección "SCHEMAS", asegúrate de que `elgamaldb` esté visible.
@@ -62,7 +67,7 @@ Asegúrate de tener [Python](https://www.python.org/downloads/) instalado en tu 
 2. **Endpoints Disponibles**:
 
     - **Registro de Usuario**
-      - **Método**: [`POST`](command:_github.copilot.openSymbolFromReferences?%5B%22POST%22%2C%5B%7B%22uri%22%3A%7B%22%24mid%22%3A1%2C%22fsPath%22%3A%22c%3A%5C%5CUsers%5C%5Cluill%5C%5CDocuments%5C%5CmiGit%5C%5Celgamal-api%5C%5CREADME.md%22%2C%22_sep%22%3A1%2C%22external%22%3A%22file%3A%2F%2F%2Fc%253A%2FUsers%2Fluill%2FDocuments%2FmiGit%2Felgamal-api%2FREADME.md%22%2C%22path%22%3A%22%2Fc%3A%2FUsers%2Fluill%2FDocuments%2FmiGit%2Felgamal-api%2FREADME.md%22%2C%22scheme%22%3A%22file%22%7D%2C%22pos%22%3A%7B%22line%22%3A41%2C%22character%22%3A21%7D%7D%5D%5D "Go to definition")
+      - **Método**: `POST`
       - **Endpoint**: `/api/register`
       - **Descripción**: Registra un nuevo usuario en el sistema.
       - **Cuerpo de la Solicitud**: JSON con el siguiente formato:
@@ -74,7 +79,7 @@ Asegúrate de tener [Python](https://www.python.org/downloads/) instalado en tu 
         ```
 
     - **Inicio de Sesión**
-      - **Método**: [`POST`](command:_github.copilot.openSymbolFromReferences?%5B%22POST%22%2C%5B%7B%22uri%22%3A%7B%22%24mid%22%3A1%2C%22fsPath%22%3A%22c%3A%5C%5CUsers%5C%5Cluill%5C%5CDocuments%5C%5CmiGit%5C%5Celgamal-api%5C%5CREADME.md%22%2C%22_sep%22%3A1%2C%22external%22%3A%22file%3A%2F%2F%2Fc%253A%2FUsers%2Fluill%2FDocuments%2FmiGit%2Felgamal-api%2FREADME.md%22%2C%22path%22%3A%22%2Fc%3A%2FUsers%2Fluill%2FDocuments%2FmiGit%2Felgamal-api%2FREADME.md%22%2C%22scheme%22%3A%22file%22%7D%2C%22pos%22%3A%7B%22line%22%3A41%2C%22character%22%3A21%7D%7D%5D%5D "Go to definition")
+      - **Método**: `POST`
       - **Endpoint**: `/api/login`
       - **Descripción**: Autentica un usuario comparando la contraseña ingresada con la almacenada.
       - **Cuerpo de la Solicitud**: JSON con el siguiente formato:
