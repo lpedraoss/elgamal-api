@@ -1,5 +1,4 @@
-# login.py
-from flask import Blueprint, request, jsonify, render_template
+from flask import Blueprint, request, jsonify, render_template, redirect, url_for
 from database import get_db_connection
 from utils.encryption import verify_password
 
@@ -22,7 +21,6 @@ def login():
     connection = get_db_connection()
     cursor = connection.cursor(dictionary=True)
     
-    # Verificar si la tabla 'users' existe y crearla si no existe
     cursor.execute("""
     CREATE TABLE IF NOT EXISTS users (
         id INT AUTO_INCREMENT PRIMARY KEY,
@@ -41,6 +39,6 @@ def login():
     connection.close()
     
     if user and verify_password(password, eval(user['password']), int(user['p']), int(user['a']), int(user['c1'])):
-        return jsonify({'message': 'Login successful!'}), 200
+        return redirect(url_for('home_page'))
     else:
         return jsonify({'message': 'Login failed. Check your username and/or password.'}), 401
