@@ -12,6 +12,15 @@
     <main class="container">
         <section class="form-section">
             <h1>Login</h1>
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    {% for category, message in messages %}
+                        <div class="flash-message {{ category }}">
+                            <p>{{ message }}</p>
+                        </div>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
             <form action="/api/login" method="post" class="form">
                 <div class="form-group">
                     <label for="username">Username:</label>

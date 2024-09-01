@@ -1,4 +1,4 @@
-from flask import Blueprint, request, jsonify, render_template, redirect, url_for  # Agregué redirect y url_for
+from flask import Blueprint, request, jsonify, render_template, redirect, url_for, flash  # Agregué redirect y url_for
 from database import get_db_connection
 from utils.encryption import gen_key, power, encrypt
 import random
@@ -39,9 +39,10 @@ def register():
     user = cursor.fetchone()
     
     if user:
-        return jsonify({'message': 'Username already exists.'}), 409
+        flash('Username already exists. Please choose another one.', 'error')
+        return redirect(url_for('register.register_page'))
     
-    p = str(random.randint(pow(10, 20), pow(10, 50)))
+    p = str(random.randint(int(pow(10, 20)), int(pow(10, 50))))
     g = random.randint(2, int(p))
     a = str(gen_key(int(p)))
     e = power(g, int(a), int(p))
@@ -56,4 +57,4 @@ def register():
     cursor.close()
     connection.close()
     
-    return redirect(url_for('login.login_page'))  # Redirigir a la página de login después de un registro exitoso
+    return render_template('register.html', success=True)  # Redirigir a la página de login después de un registro exitoso
