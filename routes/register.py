@@ -41,7 +41,7 @@ def register():
     if user:
         return jsonify({'message': 'Username already exists.'}), 409
     
-    p = str(random.randint(pow(10, 20), pow(10, 50)))
+    p = str(random.randint(int(pow(10, 20)), int(pow(10, 50))))
     g = random.randint(2, int(p))
     a = str(gen_key(int(p)))
     e = power(g, int(a), int(p))
@@ -56,4 +56,4 @@ def register():
     cursor.close()
     connection.close()
     
-    return redirect(url_for('login.login_page'))  # Redirigir a la página de login después de un registro exitoso
+    return redirect(url_for('login.login'))  # Redirigir a la página de login después de un registro exitoso
