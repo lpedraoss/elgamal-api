@@ -128,3 +128,24 @@ input:focus {
 #dialog.error {
     background-color: red;
 }
+
+/* Error Message */
+.error-message {
+    background-color: #ff4d4d; /* Rojo suave */
+    color: #ffffff;
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.flash-message {
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 4px;
+}
+
+.flash-message.error {
+    background-color: #ff4d4d; /* Color rojo para errores */
+    color: #ffffff;
+}
