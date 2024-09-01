@@ -10,9 +10,9 @@ def gcd(a, b):
         return gcd(b, a % b)
 
 def gen_key(p):
-    key = random.randint(pow(10, 20), p)
+    key = random.randint(int(pow(10, 20)), p)
     while gcd(p, key) != 1:
-        key = random.randint(pow(10, 20), p)
+        key = random.randint(int(pow(10, 20)), p)
     return key
 
 def power(a, b, c):
