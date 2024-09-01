@@ -1,0 +1,117 @@
+/* General Styles for the Home Page - Dark Mode */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #121212; /* Fondo oscuro */
+    margin: 0;
+    padding: 0;
+    color: #e0e0e0; /* Texto claro */
+}
+
+h1, h2 {
+    text-align: center;
+    color: #ffffff; /* Texto de los títulos en blanco */
+    margin-top: 20px;
+}
+
+h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+h2 {
+    font-size: 1.8rem;
+    margin-top: 40px;
+}
+
+p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    text-align: justify;
+    padding: 0 20px;
+    color: #b0b0b0; /* Texto de los párrafos en gris claro */
+}
+
+/* Container Styles */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px;
+    background-color: #1e1e1e; /* Fondo del contenedor ligeramente más claro */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Sombra suave */
+    border-radius: 8px;
+}
+
+/* Section Styles */
+.form-section {
+    text-align: left;
+    padding: 20px;
+}
+
+ol, ul {
+    margin-left: 40px;
+    margin-bottom: 20px;
+}
+
+ol li, ul li {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+    line-height: 1.6;
+    color: #c0c0c0; /* Texto de listas en gris claro */
+}
+
+/* Highlighting and Emphasis */
+strong {
+    color: #80cbc4; /* Color turquesa claro para el texto resaltado */
+    font-weight: bold;
+}
+
+/* Example Section */
+.centered-image {
+    display: block;
+    margin: 30px auto;
+    max-width: 80%;
+    height: auto;
+    border: 2px solid #80cbc4; /* Borde turquesa claro */
+    border-radius: 8px;
+}
+
+img{
+    background: white;
+}
+
+/* Button Styles (Optional if you have buttons) */
+button {
+    background-color: #80cbc4;
+    color: #121212;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #4db6ac; /* Botón se oscurece al pasar el mouse */
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    p {
+        font-size: 1rem;
+    }
+}

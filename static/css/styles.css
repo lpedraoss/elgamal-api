@@ -149,3 +149,10 @@ input:focus {
     background-color: #ff4d4d; /* Color rojo para errores */
     color: #ffffff;
 }
+
+.centered-image {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%; /* Ajusta según sea necesario */
+}
