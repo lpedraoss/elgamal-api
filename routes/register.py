@@ -56,4 +56,4 @@ def register():
     cursor.close()
     connection.close()
     
-    return redirect(url_for('login_page'))  # Redirigir a la página de login después de un registro exitoso
+    return redirect(url_for('login.login_page'))  # Redirigir a la página de login después de un registro exitoso
