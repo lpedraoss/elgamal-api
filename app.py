@@ -13,7 +13,7 @@ app.register_blueprint(login_blueprint, url_prefix='/api')
 # Index route that redirects to login
 @app.route('/')
 def index():
-    return redirect(url_for('login.login_page'))
+    return redirect(url_for('login.login'))
 @app.route('/home')
 def home_page():
     return render_template('home.html')
