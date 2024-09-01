@@ -6,12 +6,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <script>
+        function redirectToLogin() {
+            setTimeout(function() {
+                window.location.href = "{{ url_for('login.login') }}";
+            }, 3000); // Cambia a 10000 para 10 segundos
+        }
+    </script>
 </head>
 
 <body>
     <main class="container">
         <section class="form-section">
             <h1>Register</h1>
+            {% if success %}
+            <div class="success-message">
+                <p>Registration successful! Redirecting to login...</p>
+            </div>
+            <script>
+                redirectToLogin();  // Llama a la función para redirigir después de 5 segundos
+            </script>
+            {% else %}
             <form action="/api/register" method="post" class="form">
                 <div class="form-group">
                     <label for="username">Username:</label>
@@ -23,6 +38,7 @@
                 </div>
                 <button type="submit" class="btn">Register</button>
             </form>
+            {% endif %}
             
             <p class="form-text">Already have an account? <a href="/api/login">Login here</a></p>
         </section>

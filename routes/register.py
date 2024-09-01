@@ -1,4 +1,4 @@
-from flask import Blueprint, request, jsonify, render_template, redirect, url_for  # Agregué redirect y url_for
+from flask import Blueprint, request, jsonify, render_template, redirect, url_for, flash  # Agregué redirect y url_for
 from database import get_db_connection
 from utils.encryption import gen_key, power, encrypt
 import random
@@ -56,4 +56,4 @@ def register():
     cursor.close()
     connection.close()
     
-    return redirect(url_for('login.login'))  # Redirigir a la página de login después de un registro exitoso
+    return render_template('register.html', success=True)  # Redirigir a la página de login después de un registro exitoso
