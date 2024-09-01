@@ -39,7 +39,8 @@ def register():
     user = cursor.fetchone()
     
     if user:
-        return jsonify({'message': 'Username already exists.'}), 409
+        flash('Username already exists. Please choose another one.', 'error')
+        return redirect(url_for('register.register_page'))
     
     p = str(random.randint(int(pow(10, 20)), int(pow(10, 50))))
     g = random.randint(2, int(p))
