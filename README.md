@@ -36,28 +36,17 @@ Asegúrate de tener [Python](https://www.python.org/downloads/) instalado en tu 
       mkdir data
       ```
 
-    - Crea el archivo de base de datos y la tabla `users` ejecutando el siguiente script Python:
+    - Usa el plugin de MySQL con soporte para SQLite para crear la base de datos y la tabla `users` en `data/users.db`. Aquí está el SQL que necesitas ejecutar:
 
-      ```python
-      import sqlite3
-      import os
-
-      db_path = "data/users.db"
-      if not os.path.exists(db_path):
-          connection = sqlite3.connect(db_path)
-          cursor = connection.cursor()
-          cursor.execute('''
-              CREATE TABLE IF NOT EXISTS users (
-                  id INTEGER PRIMARY KEY AUTOINCREMENT,
-                  username TEXT NOT NULL UNIQUE,
-                  password TEXT NOT NULL,
-                  p TEXT NOT NULL,
-                  a TEXT NOT NULL,
-                  c1 TEXT NOT NULL
-              );
-          ''')
-          connection.commit()
-          connection.close()
+      ```sql
+      CREATE TABLE IF NOT EXISTS users (
+          id INTEGER PRIMARY KEY AUTOINCREMENT,
+          username TEXT NOT NULL UNIQUE,
+          password TEXT NOT NULL,
+          p TEXT NOT NULL,
+          a TEXT NOT NULL,
+          c1 TEXT NOT NULL
+      );
       ```
 
 ## Ejecución de la API
