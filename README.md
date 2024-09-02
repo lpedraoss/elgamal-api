@@ -28,33 +28,37 @@ Asegúrate de tener [Python](https://www.python.org/downloads/) instalado en tu 
     pip install -r requirements.txt
     ```
 
-4. **Instala MySQL Server y MySQL Workbench**:
+4. **Configura la base de datos**:
 
-    - Descarga e instala [MySQL Server](https://dev.mysql.com/downloads/mysql/).
-    - Descarga e instala [MySQL Workbench](https://dev.mysql.com/downloads/workbench/).
+    - Crea la carpeta `data` si no existe:
 
-5. **Configura la base de datos**:
+      ```bash
+      mkdir data
+      ```
 
-    - Abre MySQL Workbench.
-    - En la barra lateral izquierda, en la sección "SCHEMAS", asegúrate de que `elgamaldb` esté visible.
-    - Haz doble clic en `elgamaldb` para seleccionarla como la base de datos activa.
-    - Abre una nueva pestaña de consulta (Query Tab).
-    - Copia y pega el siguiente script SQL en la nueva pestaña de consulta:
-    
-    ```sql
-    USE elgamaldb;
+    - Crea el archivo de base de datos y la tabla `users` ejecutando el siguiente script Python:
 
-    CREATE TABLE IF NOT EXISTS users (
-        id INT AUTO_INCREMENT PRIMARY KEY,
-        username VARCHAR(255) NOT NULL UNIQUE,
-        password TEXT NOT NULL,
-        p VARCHAR(255) NOT NULL,
-        a VARCHAR(255) NOT NULL,
-        c1 VARCHAR(255) NOT NULL
-    );
-    ```
+      ```python
+      import sqlite3
+      import os
 
-    - Ejecuta el script (puedes hacerlo presionando el botón de rayo o usando el atajo de teclado `Ctrl+Enter`).
+      db_path = "data/users.db"
+      if not os.path.exists(db_path):
+          connection = sqlite3.connect(db_path)
+          cursor = connection.cursor()
+          cursor.execute('''
+              CREATE TABLE IF NOT EXISTS users (
+                  id INTEGER PRIMARY KEY AUTOINCREMENT,
+                  username TEXT NOT NULL UNIQUE,
+                  password TEXT NOT NULL,
+                  p TEXT NOT NULL,
+                  a TEXT NOT NULL,
+                  c1 TEXT NOT NULL
+              );
+          ''')
+          connection.commit()
+          connection.close()
+      ```
 
 ## Ejecución de la API
 
