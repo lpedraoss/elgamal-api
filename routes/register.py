@@ -1,4 +1,4 @@
-from flask import Blueprint, request, jsonify, render_template, redirect, url_for, flash  # Agregué redirect y url_for
+from flask import Blueprint, request, jsonify, render_template, redirect, url_for, flash
 from database import get_db_connection
 from utils.encryption import gen_key, power, encrypt
 import random
@@ -21,21 +21,20 @@ def register():
         password = request.form.get('password')
     
     connection = get_db_connection()
-    cursor = connection.cursor(dictionary=True)
+    cursor = connection.cursor()
     
-    # Verificar si la tabla 'users' existe y crearla si no existe
     cursor.execute("""
-    CREATE TABLE IF NOT EXISTS users (
-        id INT AUTO_INCREMENT PRIMARY KEY,
-        username VARCHAR(255) NOT NULL UNIQUE,
-        password TEXT NOT NULL,
-        p VARCHAR(255) NOT NULL,
-        a VARCHAR(255) NOT NULL,
-        c1 VARCHAR(255) NOT NULL
-    )
+        CREATE TABLE IF NOT EXISTS users (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            username TEXT NOT NULL UNIQUE,
+            password TEXT NOT NULL,
+            p TEXT NOT NULL,
+            a TEXT NOT NULL,
+            c1 TEXT NOT NULL
+        );
     """)
     
-    cursor.execute("SELECT * FROM users WHERE username = %s", (username,))
+    cursor.execute("SELECT * FROM users WHERE username = ?", (username,))
     user = cursor.fetchone()
     
     if user:
@@ -50,11 +49,11 @@ def register():
     en_password, c1 = encrypt(password, int(p), e, g)
     
     cursor.execute(
-        "INSERT INTO users (username, password, p, a, c1) VALUES (%s, %s, %s, %s, %s)",
+        "INSERT INTO users (username, password, p, a, c1) VALUES (?, ?, ?, ?, ?)",
         (username, str(en_password), p, a, str(c1))
     )
     connection.commit()
     cursor.close()
     connection.close()
     
-    return render_template('register.html', success=True)  # Redirigir a la página de login después de un registro exitoso
+    return render_template('register.html', success=True)

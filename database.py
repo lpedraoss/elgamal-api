@@ -1,15 +1,10 @@
 from dotenv import load_dotenv
-import os
 import mysql.connector
-
-load_dotenv()
+import os
+import sqlite3
 
 def get_db_connection():
-    connection = mysql.connector.connect(
-        host=os.getenv('DB1_HOST'),
-        user=os.getenv('DB1_USER'),
-        password=os.getenv('DB1_PASSWORD'),
-        database=os.getenv('DB1_NAME'),
-        port=int(os.getenv('DB1_PORT'))  # Asegúrate de convertir el puerto a un entero
-    )
+    db_path = "data/users.db"
+    connection = sqlite3.connect(db_path)
     return connection
+
