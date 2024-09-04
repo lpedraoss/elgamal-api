@@ -9,74 +9,142 @@
 </head>
 
 <body>
+    <!-- Header -->
+    <header class="appbar">
+        <div class="appbar-content">
+            <span class="appbar-title glitch" data-text="ElGamal System">ElGamal System</span>
+            <nav class="appbar-nav">
+                <a href="#seccion1">Inicio</a>
+                <a href="#seccion2">Funcionamiento</a>
+                <a href="#seccion3">Fundamentos</a>
+                <a href="#seccion4">Ejemplo</a>
+                <a href="#seccion5">Aplicaciones</a>
+            </nav>
+        </div>
+    </header>
+
     <main class="container">
-        <section class="form-section">
+        <!-- Sección 1 -->
+        <section id="seccion1" class="form-section">
             <h1>Bienvenido al Sistema Criptográfico ElGamal</h1>
-            <p>ElGamal es un sistema criptográfico de clave pública utilizado para la transmisión segura de datos. Fue desarrollado por Taher ElGamal en 1985 y se basa en el principio del intercambio de claves de Diffie-Hellman. El cifrado ElGamal es ampliamente utilizado por su robusta seguridad, particularmente en firmas digitales e intercambio seguro de claves.</p>
+            <details>
+                <summary>Ver más</summary>
+                <p>ElGamal es un sistema criptográfico de clave pública utilizado para la transmisión segura de datos.
+                    Fue
+                    desarrollado por Taher ElGamal en 1985 y se basa en el principio del intercambio de claves de
+                    Diffie-Hellman. El cifrado ElGamal es ampliamente utilizado por su robusta seguridad,
+                    particularmente en
+                    firmas digitales e intercambio seguro de claves.</p>
+            </details>
+        </section>
 
+        <!-- Sección 2 -->
+        <section id="seccion2" class="form-section">
             <h2>¿Cómo Funciona ElGamal?</h2>
-            <p>El sistema criptográfico ElGamal consta de tres componentes principales:</p>
-            <ol>
-                <li>
-                    <strong>Generación de Claves:</strong> 
-                    <ul>
-                        <li>Se elige un número primo grande <em>p</em> y un generador <em>g</em>.</li>
-                        <li>Se selecciona un número aleatorio <em>a</em> como la clave privada.</li>
-                        <li>Se calcula <em>g<sup>a</sup> mod p</em> para obtener la clave pública.</li>
-                    </ul>
-                </li>
-                <li>
-                    <strong>Encriptación:</strong> 
-                    <ul>
-                        <li>Para encriptar un mensaje <em>m</em>, se elige un número aleatorio <em>k</em>.</li>
-                        <li>Se calculan las dos partes del mensaje cifrado: <em>c1 = g<sup>k</sup> mod p</em> y <em>c2 = m * h<sup>k</sup> mod p</em>, donde <em>h</em> es la clave pública del receptor.</li>
-                    </ul>
-                </li>
-                <li>
-                    <strong>Desencriptación:</strong> 
-                    <ul>
-                        <li>El receptor utiliza su clave privada <em>a</em> para calcular <em>c1<sup>a</sup> mod p</em>.</li>
-                        <li>Luego usa este resultado para encontrar el mensaje original <em>m</em> a partir de <em>c2</em>.</li>
-                    </ul>
-                </li>
-            </ol>
+            <details>
+                <summary>Ver más</summary>
+                <p>El sistema criptográfico ElGamal consta de tres componentes principales:</p>
+                <ol>
+                    <li>
+                        <strong>Generación de Claves:</strong>
+                        <ul>
+                            <li>Se elige un número primo grande <em>p</em> y un generador <em>g</em>.</li>
+                            <li>Se selecciona un número aleatorio <em>a</em> como la clave privada.</li>
+                            <li>Se calcula <em>g<sup>a</sup> mod p</em> para obtener la clave pública.</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <strong>Encriptación:</strong>
+                        <ul>
+                            <li>Para encriptar un mensaje <em>m</em>, se elige un número aleatorio <em>k</em>.</li>
+                            <li>Se calculan las dos partes del mensaje cifrado: <em>c1 = g<sup>k</sup> mod p</em> y
+                                <em>c2 =
+                                    m * h<sup>k</sup> mod p</em>, donde <em>h</em> es la clave pública del receptor.
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <strong>Desencriptación:</strong>
+                        <ul>
+                            <li>El receptor utiliza su clave privada <em>a</em> para calcular <em>c1<sup>a</sup> mod
+                                    p</em>.
+                            </li>
+                            <li>Luego usa este resultado para encontrar el mensaje original <em>m</em> a partir de
+                                <em>c2</em>.
+                            </li>
+                        </ul>
+                    </li>
+                </ol>
+            </details>
+        </section>
 
+        <!-- Sección 3 -->
+        <section id="seccion3" class="form-section">
             <h2>Fundamentos Matemáticos</h2>
-            <p>El cifrado ElGamal se basa en la dificultad de resolver el problema del logaritmo discreto. La seguridad del sistema se fundamenta en los siguientes conceptos matemáticos:</p>
-            <ul>
-                <li><strong>Congruencia:</strong> Utilizada en aritmética modular, asegurando que los cálculos se mantengan dentro de un rango fijo.</li>
-                <li><strong>Grupos Cíclicos:</strong> Una estructura matemática donde las operaciones de grupo están definidas, y cada elemento puede generarse aplicando repetidamente la operación del grupo a un elemento en particular.</li>
-                <li><strong>Logaritmo Discreto:</strong> La inversa de la operación de exponenciación modular, la cual es computacionalmente difícil de revertir sin la clave privada.</li>
-            </ul>
+            <details>
+                <summary>Ver más</summary>
+                <p>El cifrado ElGamal se basa en la dificultad de resolver el problema del logaritmo discreto. La
+                    seguridad
+                    del sistema se fundamenta en los siguientes conceptos matemáticos:</p>
+                <ul>
+                    <li><strong>Congruencia:</strong> Utilizada en aritmética modular, asegurando que los cálculos se
+                        mantengan dentro de un rango fijo.</li>
+                    <li><strong>Grupos Cíclicos:</strong> Una estructura matemática donde las operaciones de grupo están
+                        definidas, y cada elemento puede generarse aplicando repetidamente la operación del grupo a un
+                        elemento en particular.</li>
+                    <li><strong>Logaritmo Discreto:</strong> La inversa de la operación de exponenciación modular, la
+                        cual
+                        es computacionalmente difícil de revertir sin la clave privada.</li>
+                </ul>
+            </details>
+        </section>
 
+        <!-- Sección 4 -->
+        <section id="seccion4" class="form-section">
             <h2>Ejemplo de Cifrado ElGamal</h2>
-            <p>Consideremos un número primo <em>p = 23</em> y un generador <em>g = 5</em>:</p>
-            <ul>
-                <li>Clave privada de Alice: <em>a = 6</em></li>
-                <li>Clave pública de Alice: <em>h = g<sup>a</sup> mod p = 5<sup>6</sup> mod 23 = 8</em></li>
-                <li>Mensaje a encriptar: <em>m = 15</em></li>
-                <li>Número aleatorio elegido: <em>k = 3</em></li>
-                <li>Cifrado calculado: <em>c1 = g<sup>k</sup> mod p = 5<sup>3</sup> mod 23 = 10</em>, <em>c2 = m * h<sup>k</sup> mod p = 15 * 8<sup>3</sup> mod 23 = 2</em></li>
-            </ul>
-            <p>Bob, el receptor, puede desencriptar el mensaje usando su clave privada para recuperar el mensaje original <em>m = 15</em>.</p>
+            <details>
+                <summary>Ver más</summary>
+                <p>Consideremos un número primo <em>p = 23</em> y un generador <em>g = 5</em>:</p>
+                <ul>
+                    <li>Clave privada de Alice: <em>a = 6</em></li>
+                    <li>Clave pública de Alice: <em>h = g<sup>a</sup> mod p = 5<sup>6</sup> mod 23 = 8</em></li>
+                    <li>Mensaje a encriptar: <em>m = 15</em></li>
+                    <li>Número aleatorio elegido: <em>k = 3</em></li>
+                    <li>Cifrado calculado: <em>c1 = g<sup>k</sup> mod p = 5<sup>3</sup> mod 23 = 10</em>, <em>c2 = m *
+                            h<sup>k</sup> mod p = 15 * 8<sup>3</sup> mod 23 = 2</em></li>
+                </ul>
+                <p>Bob, el receptor, puede desencriptar el mensaje usando su clave privada para recuperar el mensaje
+                    original <em>m = 15</em>.</p>
+            </details>
+        </section>
 
+        <!-- Sección 5 -->
+        <section id="seccion5" class="form-section">
             <h2>Aplicaciones de ElGamal</h2>
-            <ul>
-                <li><strong>Firmas Digitales:</strong> Garantiza la integridad y autenticidad de mensajes y documentos.</li>
-                <li><strong>Intercambio Seguro de Claves:</strong> Facilita el intercambio seguro de claves criptográficas en un canal inseguro.</li>
-                <li><strong>Sistemas de Votación Electrónica:</strong> Utilizado para asegurar la confidencialidad e integridad de los votos en sistemas de votación electrónica.</li>
-            </ul>
-
-            <h2>Ejemplo Visual</h2>
-            <p>A continuación se muestra una representación visual del proceso de cifrado ElGamal:</p>
-            <img src="https://captanu.wordpress.com/wp-content/uploads/2015/05/untitled-diagram.png" alt="Proceso de Cifrado ElGamal" class="centered-image">
-            <p>Esta imagen ilustra el flujo de datos y cálculos en el sistema criptográfico ElGamal.</p>
-
-            <h2>Conclusión</h2>
-            <p>ElGamal sigue siendo un pilar en la criptografía moderna, proporcionando un método seguro para el cifrado y las firmas digitales. Su dependencia en principios matemáticos como el problema del logaritmo discreto asegura que siga siendo robusto frente a diversos ataques criptográficos.</p>
-
+            <details>
+                <summary>Ver más</summary>
+                <ul>
+                    <li><strong>Firmas Digitales:</strong> Garantiza la integridad y autenticidad de mensajes y
+                        documentos.
+                    </li>
+                    <li><strong>Intercambio Seguro de Claves:</strong> Facilita el intercambio seguro de claves
+                        criptográficas en un canal inseguro.</li>
+                    <li><strong>Sistemas de Votación Electrónica:</strong> Utilizado para asegurar la confidencialidad e
+                        integridad de los votos en sistemas de votación electrónica.</li>
+                </ul>
+            </details>
         </section>
     </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2024 ElGamal System. Conectado de forma segura.</p>
+            <p>Síguenos en <a href="#">Twitter</a> | <a href="https://github.com/lpedraoss/elgamal-api.git">GitHub</a>
+            </p>
+        </div>
+    </footer>
+
 </body>
 
 </html>

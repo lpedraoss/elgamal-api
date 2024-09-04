@@ -1,117 +1,221 @@
-/* General Styles for the Home Page - Dark Mode */
+/* General Styles */
 body {
-    font-family: 'Arial', sans-serif;
-    background-color: #121212; /* Fondo oscuro */
+    font-family: 'Courier New', Courier, monospace;
+    background-color: #1b1b1b;
+    color: #00ff00;
     margin: 0;
     padding: 0;
-    color: #e0e0e0; /* Texto claro */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
-h1, h2 {
-    text-align: center;
-    color: #ffffff; /* Texto de los títulos en blanco */
-    margin-top: 20px;
+/* Header */
+.appbar {
+    background-color: #000;
+    color: #00ff00;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    border-bottom: 2px solid #00ff00;
 }
 
-h1 {
-    font-size: 2.5rem;
-    font-weight: bold;
-    margin-bottom: 10px;
-}
-
-h2 {
-    font-size: 1.8rem;
-    margin-top: 40px;
-}
-
-p {
-    font-size: 1.1rem;
-    line-height: 1.6;
-    margin-bottom: 20px;
-    text-align: justify;
-    padding: 0 20px;
-    color: #b0b0b0; /* Texto de los párrafos en gris claro */
-}
-
-/* Container Styles */
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 40px;
-    background-color: #1e1e1e; /* Fondo del contenedor ligeramente más claro */
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Sombra suave */
-    border-radius: 8px;
-}
-
-/* Section Styles */
-.form-section {
-    text-align: left;
-    padding: 20px;
-}
-
-ol, ul {
-    margin-left: 40px;
-    margin-bottom: 20px;
-}
-
-ol li, ul li {
-    font-size: 1.1rem;
-    margin-bottom: 10px;
-    line-height: 1.6;
-    color: #c0c0c0; /* Texto de listas en gris claro */
-}
-
-/* Highlighting and Emphasis */
-strong {
-    color: #80cbc4; /* Color turquesa claro para el texto resaltado */
-    font-weight: bold;
-}
-
-/* Example Section */
-.centered-image {
-    display: block;
-    margin: 30px auto;
-    max-width: 80%;
-    height: auto;
-    border: 2px solid #80cbc4; /* Borde turquesa claro */
-    border-radius: 8px;
-}
-
-img{
-    background: white;
-}
-
-/* Button Styles (Optional if you have buttons) */
-button {
-    background-color: #80cbc4;
-    color: #121212;
-    border: none;
+.appbar-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     padding: 10px 20px;
-    font-size: 1.2rem;
-    border-radius: 5px;
+}
+
+.appbar-title {
+    font-size: 24px;
+    font-weight: bold;
+    position: relative;
+}
+
+/* Glitch Effect */
+.glitch {
+    position: relative;
+    color: #00ff00;
+    font-size: 2.5em;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: center;
+    animation: glitch-animation 1.5s infinite;
+}
+
+.glitch::before,
+.glitch::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #1b1b1b;
+    overflow: hidden;
+    clip: rect(0, 900px, 0, 0);
+}
+
+.glitch::before {
+    left: 2px;
+    text-shadow: -2px 0 #ff00ff;
+    animation: glitch-before 1.5s infinite linear alternate-reverse;
+}
+
+.glitch::after {
+    left: -2px;
+    text-shadow: -2px 0 #00ffff;
+    animation: glitch-after 1.5s infinite linear alternate-reverse;
+}
+
+@keyframes glitch-animation {
+    0% {
+        transform: translate(0);
+    }
+
+    20% {
+        transform: translate(-2px, 2px);
+    }
+
+    40% {
+        transform: translate(-2px, -2px);
+    }
+
+    60% {
+        transform: translate(2px, 2px);
+    }
+
+    80% {
+        transform: translate(2px, -2px);
+    }
+
+    100% {
+        transform: translate(0);
+    }
+}
+
+@keyframes glitch-before {
+    0% {
+        clip: rect(0, 9999px, 0, 0);
+    }
+
+    20% {
+        clip: rect(8px, 9999px, 15px, 0);
+    }
+
+    40% {
+        clip: rect(15px, 9999px, 8px, 0);
+    }
+
+    60% {
+        clip: rect(4px, 9999px, 20px, 0);
+    }
+
+    80% {
+        clip: rect(8px, 9999px, 10px, 0);
+    }
+
+    100% {
+        clip: rect(0, 9999px, 0, 0);
+    }
+}
+
+@keyframes glitch-after {
+    0% {
+        clip: rect(0, 9999px, 0, 0);
+    }
+
+    20% {
+        clip: rect(8px, 9999px, 15px, 0);
+    }
+
+    40% {
+        clip: rect(15px, 9999px, 8px, 0);
+    }
+
+    60% {
+        clip: rect(4px, 9999px, 20px, 0);
+    }
+
+    80% {
+        clip: rect(8px, 9999px, 10px, 0);
+    }
+
+    100% {
+        clip: rect(0, 9999px, 0, 0);
+    }
+}
+
+.appbar-nav a {
+    color: #00ff00;
+    text-decoration: none;
+    margin: 0 15px;
+}
+
+.appbar-nav a:hover {
+    text-decoration: underline;
+}
+
+/* Main Content */
+.container {
+    flex-grow: 1;
+    padding: 100px 20px 20px;
+    /* Ajustar padding para header fijo */
+}
+
+.form-section {
+    margin-bottom: 20px;
+    border: 1px solid #00ff00;
+    padding: 10px;
+    border-radius: 8px;
+    background-color: #222;
+}
+
+/* Details and Summary */
+details {
+    margin-top: 10px;
+}
+
+summary {
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    font-weight: bold;
+    font-size: 1.2em;
+    color: #00ff00;
 }
 
-button:hover {
-    background-color: #4db6ac; /* Botón se oscurece al pasar el mouse */
+summary:hover {
+    text-decoration: underline;
 }
 
-/* Mobile Responsiveness */
-@media (max-width: 768px) {
-    .container {
-        padding: 20px;
-    }
+details[open] summary {
+    color: #ff00ff;
+}
 
-    h1 {
-        font-size: 2rem;
-    }
+details p,
+details ol,
+details ul {
+    margin-left: 20px;
+}
 
-    h2 {
-        font-size: 1.5rem;
-    }
+/* Footer */
+.footer {
+    background-color: #000;
+    color: #00ff00;
+    padding: 10px 0;
+    text-align: center;
+    margin-top: auto;
+    /* Empuja el footer al final de la página */
+}
 
-    p {
-        font-size: 1rem;
-    }
+.footer-content a {
+    color: #00ff00;
+    text-decoration: none;
+    margin: 0 5px;
+}
+
+.footer-content a:hover {
+    text-decoration: underline;
 }
