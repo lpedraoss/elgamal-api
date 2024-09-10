@@ -102,20 +102,9 @@
         <!-- Sección 4 -->
         <section id="seccion4" class="form-section">
             <h2>Ejemplo de Cifrado ElGamal</h2>
-            <details>
-                <summary>Ver más</summary>
-                <p>Consideremos un número primo <em>p = 23</em> y un generador <em>g = 5</em>:</p>
-                <ul>
-                    <li>Clave privada de Alice: <em>a = 6</em></li>
-                    <li>Clave pública de Alice: <em>h = g<sup>a</sup> mod p = 5<sup>6</sup> mod 23 = 8</em></li>
-                    <li>Mensaje a encriptar: <em>m = 15</em></li>
-                    <li>Número aleatorio elegido: <em>k = 3</em></li>
-                    <li>Cifrado calculado: <em>c1 = g<sup>k</sup> mod p = 5<sup>3</sup> mod 23 = 10</em>, <em>c2 = m *
-                            h<sup>k</sup> mod p = 15 * 8<sup>3</sup> mod 23 = 2</em></li>
-                </ul>
-                <p>Bob, el receptor, puede desencriptar el mensaje usando su clave privada para recuperar el mensaje
-                    original <em>m = 15</em>.</p>
-            </details>
+            <!-- Agregar la imagen -->
+            <img src="{{ url_for('static', filename='/jpg/confidencialidad_asimetrica.jpg') }}"
+                alt="Descripción de la imagen">
         </section>
 
         <!-- Sección 5 -->
