@@ -8,10 +8,10 @@ load_dotenv()
 db = SQLAlchemy()
 
 # Cargar las variables de entorno
-DB_USER = os.getenv('DB2_USER')
-DB_PASSWORD = os.getenv('DB2_PASSWORD')
-DB_HOST = os.getenv('DB2_HOST')
-DB_NAME = os.getenv('DB2_NAME')
+DB_USER = os.getenv('DB1_USER')
+DB_PASSWORD = os.getenv('DB1_PASSWORD')
+DB_HOST = os.getenv('DB1_HOST')
+DB_NAME = os.getenv('DB1_NAME')
 DB_PORT = os.getenv('DB1_PORT')
 
 def connect_to_database(app):
