@@ -1,5 +1,7 @@
 Flask
 requests
 mysql-connector-python
+Flask-SQLAlchemy
+PyMySQL
 python-dotenv
 gunicorn
