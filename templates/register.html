@@ -6,9 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <script>
         function redirectToLogin() {
-            setTimeout(function() {
+            setTimeout(function () {
                 window.location.href = "{{ url_for('login.login') }}";
             }, 3000); // Cambia a 10000 para 10 segundos
         }
@@ -18,16 +19,17 @@
 <body>
     <main class="container">
         <section class="form-section">
+            <div class="icon"><i class="fas fa-user-plus"></i></div> <!-- Nuevo Icono de registro -->
             <h1>Register</h1>
 
             {% with messages = get_flashed_messages(with_categories=true) %}
-                {% if messages %}
-                    {% for category, message in messages %}
-                        <div class="flash-message {{ category }}">
-                            <p>{{ message }}</p>
-                        </div>
-                    {% endfor %}
-                {% endif %}
+            {% if messages %}
+            {% for category, message in messages %}
+            <div class="flash-message {{ category }}">
+                <p>{{ message }}</p>
+            </div>
+            {% endfor %}
+            {% endif %}
             {% endwith %}
 
             {% if success %}
@@ -35,7 +37,7 @@
                 <p>Registration successful! Redirecting to login...</p>
             </div>
             <script>
-                redirectToLogin();  // Llama a la función para redirigir después de 5 segundos
+                redirectToLogin();
             </script>
             {% else %}
             <form action="/api/register" method="post" class="form">
@@ -50,7 +52,7 @@
                 <button type="submit" class="btn">Register</button>
             </form>
             {% endif %}
-            
+
             <p class="form-text">Already have an account? <a href="/api/login">Login here</a></p>
         </section>
     </main>
